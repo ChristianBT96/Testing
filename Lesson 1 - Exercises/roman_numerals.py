@@ -19,38 +19,46 @@ def roman_to_decimal(roman: str) -> int:
     if not roman:
         raise ValueError("Empty string is not a valid Roman numeral.")
 
+    roman = roman.upper()
     total = 0
-    prev_value = 0
+    i = 0
     repeat_count = 0
     last_char = ''
 
-    for i, char in enumerate(reversed(roman.upper())):
-        if char not in ROMAN_VALUES:
-            raise ValueError(f"Invalid Roman numeral character: {char}")
+    while i < len(roman):
+        current_char = roman[i]
+        if current_char not in ROMAN_VALUES:
+            raise ValueError(f"Invalid Roman numeral character: {current_char}")
+        current_value = ROMAN_VALUES[current_char]
 
-        value = ROMAN_VALUES[char]
-
-        # Repetition rules
-        if char == last_char:
+        # Check repetition
+        if current_char == last_char:
             repeat_count += 1
-            if char in ('V', 'L', 'D'):
-                raise ValueError(f"Character {char} cannot be repeated.")
-            if repeat_count > 2:
-                raise ValueError(f"Character {char} repeated more than 3 times.")
+            if current_char in ('V', 'L', 'D'):
+                raise ValueError(f"Character {current_char} cannot be repeated.")
+            if repeat_count >= 3:
+                raise ValueError(f"Character {current_char} repeated more than 3 times.")
         else:
             repeat_count = 0
-        last_char = char
+        last_char = current_char
 
-        # Subtractive notation
-        if value < prev_value:
-            if (char, roman[len(roman) - i - 2]) not in VALID_SUBTRACTIVES:
-                raise ValueError(f"Invalid subtractive notation: {char}{roman[len(roman) - i - 2]}")
-            total -= value
-        else:
-            total += value
-            prev_value = value
+        # Look ahead for subtractive pair
+        if i + 1 < len(roman):
+            next_char = roman[i + 1]
+            if next_char not in ROMAN_VALUES:
+                raise ValueError(f"Invalid Roman numeral character: {next_char}")
+            next_value = ROMAN_VALUES[next_char]
+            if current_value < next_value:
+                if (current_char, next_char) not in VALID_SUBTRACTIVES:
+                    raise ValueError(f"Invalid subtractive notation: {current_char}{next_char}")
+                total += next_value - current_value
+                i += 2
+                continue
+
+        total += current_value
+        i += 1
 
     if total > 3999:
         raise ValueError("Roman numerals cannot represent numbers larger than 3999.")
-    
+
     return total
