@@ -8,9 +8,9 @@ If you were using equivalence partitioning to prepare test cases for the postage
 
 
 1. test cases
-    - 1-150 kr.
-    - 151-300 kr.
-    - 300 -> inf kr.
+    - 0.01-150 kr.
+    - 150.01-300 kr.
+    - 300.01 -> inf kr.
 
 2. test case values
     - 75 kr.    -> 30 kr.

@@ -11,13 +11,11 @@ If you wanted to check that the bank was handling your account correctly:
 
 
 1. Input partitions
-    - 0 kr. (maybe)
-    - 1-10000 kr.
-    - 10001 - 20000 kr.
-    - 20001 -> inf kr.
+    - 0.01-10000 kr.
+    - 10000.01 - 20000 kr.
+    - 20000.01 -> MAX DOUBLE kr.
 
 2. test case values
-    - 0kr. (maybe)  -> 0.0%
     - 5000 kr.      -> 0.5%
     - 15000 kr.     -> 1.0%
     - 30000 kr.     -> 1.5%
