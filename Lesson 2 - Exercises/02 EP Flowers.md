@@ -20,4 +20,4 @@ If you were using equivalence partitioning to prepare test cases for the postage
 3. invalid partitions
     - minus values
     - non-intergers
-
+    - more
