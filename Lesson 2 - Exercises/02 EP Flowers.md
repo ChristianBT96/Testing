@@ -10,12 +10,12 @@ If you were using equivalence partitioning to prepare test cases for the postage
 1. test cases
     - 0.01-150 kr.
     - 150.01-300 kr.
-    - 300.01 -> inf kr.
+    - 300.01 -> MAX DOUBLE kr.
 
 2. test case values
     - 75 kr.    -> 30 kr.
     - 225 kr.   -> 40 kr.
-    - 500 kr.   -> 0 kr.
+    - 400 kr.   -> 0 kr.
 
 3. invalid partitions
     - minus values
