@@ -13,11 +13,11 @@ If you were using equivalence partitioning to prepare test cases for the postage
     - 300 -> inf kr.
 
 2. test case values
-    - 75 kr.
-    - 225 kr.
-    - 500 kr.
+    - 75 kr.    -> 30 kr.
+    - 225 kr.   -> 40 kr.
+    - 500 kr.   -> 0 kr.
 
 3. invalid partitions
     - minus values
     - non-intergers
-    
+

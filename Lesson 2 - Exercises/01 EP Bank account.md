@@ -17,7 +17,7 @@ If you wanted to check that the bank was handling your account correctly:
     - 20001 -> inf kr.
 
 2. test case values
-    - 0kr. (maybe)
-    - 5000 kr.
-    - 15000 kr.
-    - 30000 kr.
+    - 0kr. (maybe)  -> 0.0%
+    - 5000 kr.      -> 0.5%
+    - 15000 kr.     -> 1.0%
+    - 30000 kr.     -> 1.5%
